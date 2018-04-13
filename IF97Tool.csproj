@@ -48,6 +48,11 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Gen3DataDataSet.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Gen3DataDataSet.xsd</DependentUpon>
+    </Compile>
     <Compile Include="If97VersionExpDataSet.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -76,6 +81,18 @@
       <DesignTime>True</DesignTime>
     </Compile>
     <None Include="app.config" />
+    <None Include="bin\Debug\LibraInterfaceTool.exe.config" />
+    <None Include="Gen3DataDataSet.xsc">
+      <DependentUpon>Gen3DataDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="Gen3DataDataSet.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>Gen3DataDataSet.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Gen3DataDataSet.xss">
+      <DependentUpon>Gen3DataDataSet.xsd</DependentUpon>
+    </None>
     <None Include="If97VersionExpDataSet.xsc">
       <DependentUpon>If97VersionExpDataSet.xsd</DependentUpon>
     </None>
@@ -96,6 +113,7 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
+    <None Include="README.md" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="LibraInterface.ico" />

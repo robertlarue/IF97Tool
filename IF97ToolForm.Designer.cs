@@ -32,6 +32,19 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(IF97ToolForm));
             this.IFLoadTableGrid = new System.Windows.Forms.DataGridView();
+            this.rowMenu = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.deleteLoadToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.completeLoadToolstripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.dataSyncTimer = new System.Windows.Forms.Timer(this.components);
+            this.panel1 = new System.Windows.Forms.Panel();
+            this.InterfaceTableLabel = new System.Windows.Forms.Label();
+            this.deleteLoadBtn = new System.Windows.Forms.Button();
+            this.completeLoadBtn = new System.Windows.Forms.Button();
+            this.queueTrucksTableGrid = new System.Windows.Forms.DataGridView();
+            this.queueTrucksBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.splitContainer1 = new System.Windows.Forms.SplitContainer();
+            this.TruckQueueTableLabel = new System.Windows.Forms.Label();
+            this.queueDeleteButton = new System.Windows.Forms.Button();
             this.autoIDDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.vehicleIDDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.carrierIDDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -105,28 +118,45 @@
             this.component4TargetQtyDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.iFLoadBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.if97VersionExpDataSet = new IF97Tool.If97VersionExpDataSet();
-            this.rowMenu = new System.Windows.Forms.ContextMenuStrip(this.components);
-            this.deleteLoadToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.completeLoadToolstripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.dataSyncTimer = new System.Windows.Forms.Timer(this.components);
-            this.panel1 = new System.Windows.Forms.Panel();
-            this.deleteLoadBtn = new System.Windows.Forms.Button();
-            this.completeLoadBtn = new System.Windows.Forms.Button();
+            this.queueTruckIdxDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.processAreaTypeDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.areaIDDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.carrierIDDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.truckIDDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.amountDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.grossModeDataGridViewCheckBoxColumn = new System.Windows.Forms.DataGridViewCheckBoxColumn();
+            this.customerIDDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.jobIDDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.phaseIDDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.productIDDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.siloIDDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.lastModifiedDateDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.unattendedTerminalIDDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.operationDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.orderIDDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.gen3DataDataSetBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.gen3DataDataSet = new IF97Tool.Gen3DataDataSet();
             this.iFLoadTableAdapter = new IF97Tool.If97VersionExpDataSetTableAdapters.IFLoadTableAdapter();
+            this.queueTrucksTableAdapter = new IF97Tool.Gen3DataDataSetTableAdapters.QueueTrucksTableAdapter();
             ((System.ComponentModel.ISupportInitialize)(this.IFLoadTableGrid)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.iFLoadBindingSource)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.if97VersionExpDataSet)).BeginInit();
             this.rowMenu.SuspendLayout();
             this.panel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.queueTrucksTableGrid)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.queueTrucksBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
+            this.splitContainer1.Panel1.SuspendLayout();
+            this.splitContainer1.Panel2.SuspendLayout();
+            this.splitContainer1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.iFLoadBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.if97VersionExpDataSet)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gen3DataDataSetBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gen3DataDataSet)).BeginInit();
             this.SuspendLayout();
             // 
             // IFLoadTableGrid
             // 
             this.IFLoadTableGrid.AllowUserToAddRows = false;
             this.IFLoadTableGrid.AllowUserToOrderColumns = true;
-            this.IFLoadTableGrid.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
             this.IFLoadTableGrid.AutoGenerateColumns = false;
             this.IFLoadTableGrid.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.IFLoadTableGrid.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
@@ -202,7 +232,9 @@
             this.component4TargetWtDataGridViewTextBoxColumn,
             this.component4TargetQtyDataGridViewTextBoxColumn});
             this.IFLoadTableGrid.DataSource = this.iFLoadBindingSource;
-            this.IFLoadTableGrid.Location = new System.Drawing.Point(0, 41);
+            this.IFLoadTableGrid.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.IFLoadTableGrid.Location = new System.Drawing.Point(0, 0);
+            this.IFLoadTableGrid.Margin = new System.Windows.Forms.Padding(4);
             this.IFLoadTableGrid.Name = "IFLoadTableGrid";
             dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control;
@@ -215,14 +247,176 @@
             this.IFLoadTableGrid.RowHeadersDefaultCellStyle = dataGridViewCellStyle1;
             this.IFLoadTableGrid.RowTemplate.ContextMenuStrip = this.rowMenu;
             this.IFLoadTableGrid.ShowEditingIcon = false;
-            this.IFLoadTableGrid.Size = new System.Drawing.Size(745, 221);
-            this.IFLoadTableGrid.TabIndex = 0;
+            this.IFLoadTableGrid.Size = new System.Drawing.Size(993, 200);
+            this.IFLoadTableGrid.TabIndex = 2;
             this.IFLoadTableGrid.CellBeginEdit += new System.Windows.Forms.DataGridViewCellCancelEventHandler(this.IFLoadTableGrid_CellBeginEdit);
             this.IFLoadTableGrid.CellEndEdit += new System.Windows.Forms.DataGridViewCellEventHandler(this.IFLoadTableGrid_CellEndEdit);
             this.IFLoadTableGrid.CellEnter += new System.Windows.Forms.DataGridViewCellEventHandler(this.IFLoadTableGrid_CellEnter);
             this.IFLoadTableGrid.RowEnter += new System.Windows.Forms.DataGridViewCellEventHandler(this.IFLoadTableGrid_RowEnter);
             this.IFLoadTableGrid.RowHeaderMouseClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.IFLoadTableGrid_RowHeaderMouseClick);
+            this.IFLoadTableGrid.Scroll += new System.Windows.Forms.ScrollEventHandler(this.IFLoadTableGrid_Scroll);
             this.IFLoadTableGrid.KeyDown += new System.Windows.Forms.KeyEventHandler(this.IFLoadTableGrid_KeyDown);
+            // 
+            // rowMenu
+            // 
+            this.rowMenu.ImageScalingSize = new System.Drawing.Size(20, 20);
+            this.rowMenu.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.deleteLoadToolStripMenuItem,
+            this.completeLoadToolstripMenuItem});
+            this.rowMenu.Name = "rowMenu";
+            this.rowMenu.Size = new System.Drawing.Size(180, 56);
+            // 
+            // deleteLoadToolStripMenuItem
+            // 
+            this.deleteLoadToolStripMenuItem.Name = "deleteLoadToolStripMenuItem";
+            this.deleteLoadToolStripMenuItem.Size = new System.Drawing.Size(179, 26);
+            this.deleteLoadToolStripMenuItem.Text = "Delete Load";
+            this.deleteLoadToolStripMenuItem.Click += new System.EventHandler(this.deleteLoadToolstripMenuItem_Click);
+            // 
+            // completeLoadToolstripMenuItem
+            // 
+            this.completeLoadToolstripMenuItem.Name = "completeLoadToolstripMenuItem";
+            this.completeLoadToolstripMenuItem.Size = new System.Drawing.Size(179, 26);
+            this.completeLoadToolstripMenuItem.Text = "Complete Load";
+            this.completeLoadToolstripMenuItem.Click += new System.EventHandler(this.completeLoadToolstripMenuItem_Click);
+            // 
+            // dataSyncTimer
+            // 
+            this.dataSyncTimer.Interval = 2000;
+            this.dataSyncTimer.Tick += new System.EventHandler(this.dataSyncTimer_Tick);
+            // 
+            // panel1
+            // 
+            this.panel1.Controls.Add(this.InterfaceTableLabel);
+            this.panel1.Controls.Add(this.deleteLoadBtn);
+            this.panel1.Controls.Add(this.completeLoadBtn);
+            this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panel1.Location = new System.Drawing.Point(0, 0);
+            this.panel1.Margin = new System.Windows.Forms.Padding(4);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(993, 43);
+            this.panel1.TabIndex = 1;
+            // 
+            // InterfaceTableLabel
+            // 
+            this.InterfaceTableLabel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.InterfaceTableLabel.AutoSize = true;
+            this.InterfaceTableLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.InterfaceTableLabel.Location = new System.Drawing.Point(211, 15);
+            this.InterfaceTableLabel.Name = "InterfaceTableLabel";
+            this.InterfaceTableLabel.Size = new System.Drawing.Size(147, 17);
+            this.InterfaceTableLabel.TabIndex = 2;
+            this.InterfaceTableLabel.Text = "INTERFACE TABLE";
+            // 
+            // deleteLoadBtn
+            // 
+            this.deleteLoadBtn.Location = new System.Drawing.Point(17, 5);
+            this.deleteLoadBtn.Margin = new System.Windows.Forms.Padding(4);
+            this.deleteLoadBtn.Name = "deleteLoadBtn";
+            this.deleteLoadBtn.Size = new System.Drawing.Size(161, 38);
+            this.deleteLoadBtn.TabIndex = 0;
+            this.deleteLoadBtn.Text = "Delete Load";
+            this.deleteLoadBtn.UseVisualStyleBackColor = true;
+            this.deleteLoadBtn.Click += new System.EventHandler(this.deleteLoadBtn_Click);
+            // 
+            // completeLoadBtn
+            // 
+            this.completeLoadBtn.Location = new System.Drawing.Point(819, 5);
+            this.completeLoadBtn.Margin = new System.Windows.Forms.Padding(4);
+            this.completeLoadBtn.Name = "completeLoadBtn";
+            this.completeLoadBtn.Size = new System.Drawing.Size(161, 38);
+            this.completeLoadBtn.TabIndex = 1;
+            this.completeLoadBtn.Text = "Complete Load";
+            this.completeLoadBtn.UseVisualStyleBackColor = true;
+            this.completeLoadBtn.Click += new System.EventHandler(this.completeLoadBtn_Click);
+            // 
+            // queueTrucksTableGrid
+            // 
+            this.queueTrucksTableGrid.AllowUserToAddRows = false;
+            this.queueTrucksTableGrid.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.queueTrucksTableGrid.AutoGenerateColumns = false;
+            this.queueTrucksTableGrid.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.queueTrucksTableGrid.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.queueTruckIdxDataGridViewTextBoxColumn,
+            this.processAreaTypeDataGridViewTextBoxColumn,
+            this.areaIDDataGridViewTextBoxColumn,
+            this.carrierIDDataGridViewTextBoxColumn1,
+            this.truckIDDataGridViewTextBoxColumn,
+            this.amountDataGridViewTextBoxColumn,
+            this.grossModeDataGridViewCheckBoxColumn,
+            this.customerIDDataGridViewTextBoxColumn1,
+            this.jobIDDataGridViewTextBoxColumn,
+            this.phaseIDDataGridViewTextBoxColumn,
+            this.productIDDataGridViewTextBoxColumn1,
+            this.siloIDDataGridViewTextBoxColumn1,
+            this.lastModifiedDateDataGridViewTextBoxColumn,
+            this.unattendedTerminalIDDataGridViewTextBoxColumn,
+            this.operationDataGridViewTextBoxColumn,
+            this.orderIDDataGridViewTextBoxColumn1});
+            this.queueTrucksTableGrid.DataSource = this.queueTrucksBindingSource;
+            this.queueTrucksTableGrid.Location = new System.Drawing.Point(4, 49);
+            this.queueTrucksTableGrid.Name = "queueTrucksTableGrid";
+            this.queueTrucksTableGrid.RowTemplate.Height = 24;
+            this.queueTrucksTableGrid.Size = new System.Drawing.Size(986, 199);
+            this.queueTrucksTableGrid.TabIndex = 4;
+            this.queueTrucksTableGrid.CellBeginEdit += new System.Windows.Forms.DataGridViewCellCancelEventHandler(this.queueTrucksTableGrid_CellBeginEdit);
+            this.queueTrucksTableGrid.CellEndEdit += new System.Windows.Forms.DataGridViewCellEventHandler(this.queueTrucksTableGrid_CellEndEdit);
+            this.queueTrucksTableGrid.CellEnter += new System.Windows.Forms.DataGridViewCellEventHandler(this.queueTrucksTableGrid_CellEnter);
+            this.queueTrucksTableGrid.RowEnter += new System.Windows.Forms.DataGridViewCellEventHandler(this.queueTrucksTableGrid_RowEnter);
+            this.queueTrucksTableGrid.RowHeaderMouseClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.queueTrucksTableGrid_RowHeaderMouseClick);
+            this.queueTrucksTableGrid.Scroll += new System.Windows.Forms.ScrollEventHandler(this.queueTrucksTableGrid_Scroll);
+            this.queueTrucksTableGrid.KeyDown += new System.Windows.Forms.KeyEventHandler(this.queueTrucksTableGrid_KeyDown);
+            // 
+            // queueTrucksBindingSource
+            // 
+            this.queueTrucksBindingSource.DataMember = "QueueTrucks";
+            this.queueTrucksBindingSource.DataSource = this.gen3DataDataSetBindingSource;
+            // 
+            // splitContainer1
+            // 
+            this.splitContainer1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.splitContainer1.Location = new System.Drawing.Point(0, 50);
+            this.splitContainer1.Name = "splitContainer1";
+            this.splitContainer1.Orientation = System.Windows.Forms.Orientation.Horizontal;
+            // 
+            // splitContainer1.Panel1
+            // 
+            this.splitContainer1.Panel1.Controls.Add(this.IFLoadTableGrid);
+            // 
+            // splitContainer1.Panel2
+            // 
+            this.splitContainer1.Panel2.Controls.Add(this.TruckQueueTableLabel);
+            this.splitContainer1.Panel2.Controls.Add(this.queueDeleteButton);
+            this.splitContainer1.Panel2.Controls.Add(this.queueTrucksTableGrid);
+            this.splitContainer1.Size = new System.Drawing.Size(993, 455);
+            this.splitContainer1.SplitterDistance = 200;
+            this.splitContainer1.TabIndex = 3;
+            // 
+            // TruckQueueTableLabel
+            // 
+            this.TruckQueueTableLabel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.TruckQueueTableLabel.AutoSize = true;
+            this.TruckQueueTableLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.TruckQueueTableLabel.Location = new System.Drawing.Point(211, 15);
+            this.TruckQueueTableLabel.Name = "TruckQueueTableLabel";
+            this.TruckQueueTableLabel.Size = new System.Drawing.Size(173, 17);
+            this.TruckQueueTableLabel.TabIndex = 3;
+            this.TruckQueueTableLabel.Text = "TRUCK QUEUE TABLE";
+            // 
+            // queueDeleteButton
+            // 
+            this.queueDeleteButton.Location = new System.Drawing.Point(17, 4);
+            this.queueDeleteButton.Margin = new System.Windows.Forms.Padding(4);
+            this.queueDeleteButton.Name = "queueDeleteButton";
+            this.queueDeleteButton.Size = new System.Drawing.Size(161, 38);
+            this.queueDeleteButton.TabIndex = 3;
+            this.queueDeleteButton.Text = "Delete Queue Truck";
+            this.queueDeleteButton.UseVisualStyleBackColor = true;
+            this.queueDeleteButton.Click += new System.EventHandler(this.queueDeleteButton_Click);
             // 
             // autoIDDataGridViewTextBoxColumn
             // 
@@ -660,84 +854,152 @@
             this.if97VersionExpDataSet.DataSetName = "If97VersionExpDataSet";
             this.if97VersionExpDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
             // 
-            // rowMenu
+            // queueTruckIdxDataGridViewTextBoxColumn
             // 
-            this.rowMenu.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.deleteLoadToolStripMenuItem,
-            this.completeLoadToolstripMenuItem});
-            this.rowMenu.Name = "rowMenu";
-            this.rowMenu.Size = new System.Drawing.Size(156, 70);
+            this.queueTruckIdxDataGridViewTextBoxColumn.DataPropertyName = "QueueTruck_Idx";
+            this.queueTruckIdxDataGridViewTextBoxColumn.HeaderText = "QueueTruck_Idx";
+            this.queueTruckIdxDataGridViewTextBoxColumn.Name = "queueTruckIdxDataGridViewTextBoxColumn";
+            this.queueTruckIdxDataGridViewTextBoxColumn.Width = 120;
             // 
-            // deleteLoadToolStripMenuItem
+            // processAreaTypeDataGridViewTextBoxColumn
             // 
-            this.deleteLoadToolStripMenuItem.Name = "deleteLoadToolStripMenuItem";
-            this.deleteLoadToolStripMenuItem.Size = new System.Drawing.Size(155, 22);
-            this.deleteLoadToolStripMenuItem.Text = "Delete Load";
-            this.deleteLoadToolStripMenuItem.Click += new System.EventHandler(this.deleteLoadToolstripMenuItem_Click);
+            this.processAreaTypeDataGridViewTextBoxColumn.DataPropertyName = "ProcessAreaType";
+            this.processAreaTypeDataGridViewTextBoxColumn.HeaderText = "ProcessAreaType";
+            this.processAreaTypeDataGridViewTextBoxColumn.Name = "processAreaTypeDataGridViewTextBoxColumn";
+            this.processAreaTypeDataGridViewTextBoxColumn.Width = 125;
             // 
-            // completeLoadToolstripMenuItem
+            // areaIDDataGridViewTextBoxColumn
             // 
-            this.completeLoadToolstripMenuItem.Name = "completeLoadToolstripMenuItem";
-            this.completeLoadToolstripMenuItem.Size = new System.Drawing.Size(155, 22);
-            this.completeLoadToolstripMenuItem.Text = "Complete Load";
-            this.completeLoadToolstripMenuItem.Click += new System.EventHandler(this.completeLoadToolstripMenuItem_Click);
+            this.areaIDDataGridViewTextBoxColumn.DataPropertyName = "Area_ID";
+            this.areaIDDataGridViewTextBoxColumn.HeaderText = "Area_ID";
+            this.areaIDDataGridViewTextBoxColumn.Name = "areaIDDataGridViewTextBoxColumn";
             // 
-            // dataSyncTimer
+            // carrierIDDataGridViewTextBoxColumn1
             // 
-            this.dataSyncTimer.Interval = 2000;
-            this.dataSyncTimer.Tick += new System.EventHandler(this.dataSyncTimer_Tick);
+            this.carrierIDDataGridViewTextBoxColumn1.DataPropertyName = "Carrier_ID";
+            this.carrierIDDataGridViewTextBoxColumn1.HeaderText = "Carrier_ID";
+            this.carrierIDDataGridViewTextBoxColumn1.Name = "carrierIDDataGridViewTextBoxColumn1";
             // 
-            // panel1
+            // truckIDDataGridViewTextBoxColumn
             // 
-            this.panel1.Controls.Add(this.deleteLoadBtn);
-            this.panel1.Controls.Add(this.completeLoadBtn);
-            this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panel1.Location = new System.Drawing.Point(0, 0);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(745, 35);
-            this.panel1.TabIndex = 1;
+            this.truckIDDataGridViewTextBoxColumn.DataPropertyName = "Truck_ID";
+            this.truckIDDataGridViewTextBoxColumn.HeaderText = "Truck_ID";
+            this.truckIDDataGridViewTextBoxColumn.Name = "truckIDDataGridViewTextBoxColumn";
             // 
-            // deleteLoadBtn
+            // amountDataGridViewTextBoxColumn
             // 
-            this.deleteLoadBtn.Location = new System.Drawing.Point(140, 4);
-            this.deleteLoadBtn.Name = "deleteLoadBtn";
-            this.deleteLoadBtn.Size = new System.Drawing.Size(121, 31);
-            this.deleteLoadBtn.TabIndex = 1;
-            this.deleteLoadBtn.Text = "Delete Load";
-            this.deleteLoadBtn.UseVisualStyleBackColor = true;
-            this.deleteLoadBtn.Click += new System.EventHandler(this.deleteLoadBtn_Click);
+            this.amountDataGridViewTextBoxColumn.DataPropertyName = "Amount";
+            this.amountDataGridViewTextBoxColumn.HeaderText = "Amount";
+            this.amountDataGridViewTextBoxColumn.Name = "amountDataGridViewTextBoxColumn";
             // 
-            // completeLoadBtn
+            // grossModeDataGridViewCheckBoxColumn
             // 
-            this.completeLoadBtn.Location = new System.Drawing.Point(13, 4);
-            this.completeLoadBtn.Name = "completeLoadBtn";
-            this.completeLoadBtn.Size = new System.Drawing.Size(121, 31);
-            this.completeLoadBtn.TabIndex = 0;
-            this.completeLoadBtn.Text = "Complete Load";
-            this.completeLoadBtn.UseVisualStyleBackColor = true;
-            this.completeLoadBtn.Click += new System.EventHandler(this.completeLoadBtn_Click);
+            this.grossModeDataGridViewCheckBoxColumn.DataPropertyName = "GrossMode";
+            this.grossModeDataGridViewCheckBoxColumn.HeaderText = "GrossMode";
+            this.grossModeDataGridViewCheckBoxColumn.Name = "grossModeDataGridViewCheckBoxColumn";
+            // 
+            // customerIDDataGridViewTextBoxColumn1
+            // 
+            this.customerIDDataGridViewTextBoxColumn1.DataPropertyName = "Customer_ID";
+            this.customerIDDataGridViewTextBoxColumn1.HeaderText = "Customer_ID";
+            this.customerIDDataGridViewTextBoxColumn1.Name = "customerIDDataGridViewTextBoxColumn1";
+            // 
+            // jobIDDataGridViewTextBoxColumn
+            // 
+            this.jobIDDataGridViewTextBoxColumn.DataPropertyName = "Job_ID";
+            this.jobIDDataGridViewTextBoxColumn.HeaderText = "Job_ID";
+            this.jobIDDataGridViewTextBoxColumn.Name = "jobIDDataGridViewTextBoxColumn";
+            // 
+            // phaseIDDataGridViewTextBoxColumn
+            // 
+            this.phaseIDDataGridViewTextBoxColumn.DataPropertyName = "Phase_ID";
+            this.phaseIDDataGridViewTextBoxColumn.HeaderText = "Phase_ID";
+            this.phaseIDDataGridViewTextBoxColumn.Name = "phaseIDDataGridViewTextBoxColumn";
+            // 
+            // productIDDataGridViewTextBoxColumn1
+            // 
+            this.productIDDataGridViewTextBoxColumn1.DataPropertyName = "Product_ID";
+            this.productIDDataGridViewTextBoxColumn1.HeaderText = "Product_ID";
+            this.productIDDataGridViewTextBoxColumn1.Name = "productIDDataGridViewTextBoxColumn1";
+            // 
+            // siloIDDataGridViewTextBoxColumn1
+            // 
+            this.siloIDDataGridViewTextBoxColumn1.DataPropertyName = "Silo_ID";
+            this.siloIDDataGridViewTextBoxColumn1.HeaderText = "Silo_ID";
+            this.siloIDDataGridViewTextBoxColumn1.Name = "siloIDDataGridViewTextBoxColumn1";
+            // 
+            // lastModifiedDateDataGridViewTextBoxColumn
+            // 
+            this.lastModifiedDateDataGridViewTextBoxColumn.DataPropertyName = "LastModifiedDate";
+            this.lastModifiedDateDataGridViewTextBoxColumn.HeaderText = "LastModifiedDate";
+            this.lastModifiedDateDataGridViewTextBoxColumn.Name = "lastModifiedDateDataGridViewTextBoxColumn";
+            // 
+            // unattendedTerminalIDDataGridViewTextBoxColumn
+            // 
+            this.unattendedTerminalIDDataGridViewTextBoxColumn.DataPropertyName = "UnattendedTerminal_ID";
+            this.unattendedTerminalIDDataGridViewTextBoxColumn.HeaderText = "UnattendedTerminal_ID";
+            this.unattendedTerminalIDDataGridViewTextBoxColumn.Name = "unattendedTerminalIDDataGridViewTextBoxColumn";
+            // 
+            // operationDataGridViewTextBoxColumn
+            // 
+            this.operationDataGridViewTextBoxColumn.DataPropertyName = "Operation";
+            this.operationDataGridViewTextBoxColumn.HeaderText = "Operation";
+            this.operationDataGridViewTextBoxColumn.Name = "operationDataGridViewTextBoxColumn";
+            // 
+            // orderIDDataGridViewTextBoxColumn1
+            // 
+            this.orderIDDataGridViewTextBoxColumn1.DataPropertyName = "Order_ID";
+            this.orderIDDataGridViewTextBoxColumn1.HeaderText = "Order_ID";
+            this.orderIDDataGridViewTextBoxColumn1.Name = "orderIDDataGridViewTextBoxColumn1";
+            // 
+            // gen3DataDataSetBindingSource
+            // 
+            this.gen3DataDataSetBindingSource.DataSource = this.gen3DataDataSet;
+            this.gen3DataDataSetBindingSource.Position = 0;
+            // 
+            // gen3DataDataSet
+            // 
+            this.gen3DataDataSet.DataSetName = "Gen3DataDataSet";
+            this.gen3DataDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
             // 
             // iFLoadTableAdapter
             // 
             this.iFLoadTableAdapter.ClearBeforeFill = true;
             // 
+            // queueTrucksTableAdapter
+            // 
+            this.queueTrucksTableAdapter.ClearBeforeFill = true;
+            // 
             // IF97ToolForm
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(745, 262);
+            this.ClientSize = new System.Drawing.Size(993, 506);
             this.Controls.Add(this.panel1);
-            this.Controls.Add(this.IFLoadTableGrid);
+            this.Controls.Add(this.splitContainer1);
+            this.DoubleBuffered = true;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.Margin = new System.Windows.Forms.Padding(4);
+            this.MinimumSize = new System.Drawing.Size(600, 300);
             this.Name = "IF97ToolForm";
             this.Text = "Libra Interface Tool";
             this.Load += new System.EventHandler(this.IF97ToolForm_Load);
             this.Shown += new System.EventHandler(this.IF97ToolForm_Shown);
             ((System.ComponentModel.ISupportInitialize)(this.IFLoadTableGrid)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.iFLoadBindingSource)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.if97VersionExpDataSet)).EndInit();
             this.rowMenu.ResumeLayout(false);
             this.panel1.ResumeLayout(false);
+            this.panel1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.queueTrucksTableGrid)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.queueTrucksBindingSource)).EndInit();
+            this.splitContainer1.Panel1.ResumeLayout(false);
+            this.splitContainer1.Panel2.ResumeLayout(false);
+            this.splitContainer1.Panel2.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).EndInit();
+            this.splitContainer1.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.iFLoadBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.if97VersionExpDataSet)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gen3DataDataSetBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gen3DataDataSet)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -826,6 +1088,31 @@
         private System.Windows.Forms.Button deleteLoadBtn;
         private System.Windows.Forms.Button completeLoadBtn;
         private System.Windows.Forms.ToolStripMenuItem completeLoadToolstripMenuItem;
+        private System.Windows.Forms.DataGridView queueTrucksTableGrid;
+        private System.Windows.Forms.BindingSource gen3DataDataSetBindingSource;
+        private Gen3DataDataSet gen3DataDataSet;
+        private System.Windows.Forms.BindingSource queueTrucksBindingSource;
+        private Gen3DataDataSetTableAdapters.QueueTrucksTableAdapter queueTrucksTableAdapter;
+        private System.Windows.Forms.SplitContainer splitContainer1;
+        private System.Windows.Forms.Button queueDeleteButton;
+        private System.Windows.Forms.Label InterfaceTableLabel;
+        private System.Windows.Forms.DataGridViewTextBoxColumn queueTruckIdxDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn processAreaTypeDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn areaIDDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn carrierIDDataGridViewTextBoxColumn1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn truckIDDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn amountDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewCheckBoxColumn grossModeDataGridViewCheckBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn customerIDDataGridViewTextBoxColumn1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn jobIDDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn phaseIDDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn productIDDataGridViewTextBoxColumn1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn siloIDDataGridViewTextBoxColumn1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn lastModifiedDateDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn unattendedTerminalIDDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn operationDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn orderIDDataGridViewTextBoxColumn1;
+        private System.Windows.Forms.Label TruckQueueTableLabel;
     }
 }
 

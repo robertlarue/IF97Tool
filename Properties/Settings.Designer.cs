@@ -26,15 +26,43 @@ namespace IF97Tool.Properties {
         [global::System.Configuration.ApplicationScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.ConnectionString)]
-        [global::System.Configuration.DefaultSettingValueAttribute("Provider=Microsoft.Jet.OLEDB.4.0;Data Source=C:\\Libra\\Gen3Client\\Diagnostics\\If97" +
-            "VersionExp.mdb")]
+        [global::System.Configuration.DefaultSettingValueAttribute("Provider=Microsoft.Jet.OLEDB.4.0;Data Source=L:\\Gen3Client\\Diagnostics\\If97Versio" +
+            "nExp.mdb")]
         public string If97VersionExpConnectionString {
             get {
                 return ((string)(this["If97VersionExpConnectionString"]));
             }
-            set
-            {
-                this["If97VersionExpConnectionString"] = value;
+        }
+        
+        [global::System.Configuration.ApplicationScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.ConnectionString)]
+        [global::System.Configuration.DefaultSettingValueAttribute("Provider=Microsoft.Jet.OLEDB.4.0;Data Source=L:\\Gen3Client\\Database\\Gen3Data.mdb")]
+        public string Gen3DataConnectionString {
+            get {
+                return ((string)(this["Gen3DataConnectionString"]));
+            }
+        }
+        
+        [global::System.Configuration.ApplicationScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.ConnectionString)]
+        [global::System.Configuration.DefaultSettingValueAttribute("Provider=Microsoft.Jet.OLEDB.4.0;Data Source=C:\\Libra\\Gen3Client\\Diagnostics\\If97" +
+            "VersionExp.mdb")]
+        public string If97VersionExpConnectionStringServer {
+            get {
+                return ((string)(this["If97VersionExpConnectionStringServer"]));
+            }
+        }
+        
+        [global::System.Configuration.ApplicationScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.ConnectionString)]
+        [global::System.Configuration.DefaultSettingValueAttribute("Provider=Microsoft.Jet.OLEDB.4.0;Data Source=C:\\Libra\\Gen3Client\\Database\\Gen3Dat" +
+            "a.mdb")]
+        public string Gen3DataConnectionStringServer {
+            get {
+                return ((string)(this["Gen3DataConnectionStringServer"]));
             }
         }
     }

@@ -59,5 +59,23 @@ namespace IF97Tool.Properties {
                 resourceCulture = value;
             }
         }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to &lt;?xml version=&quot;1.0&quot; encoding=&quot;utf-8&quot; ?&gt;
+        ///&lt;configuration&gt;
+        ///  &lt;configSections&gt;
+        ///  &lt;/configSections&gt;
+        ///  &lt;connectionStrings&gt;
+        ///    &lt;add name=&quot;IF97Tool.Properties.Settings.If97VersionExpConnectionString&quot;
+        ///      connectionString=&quot;Provider=Microsoft.Jet.OLEDB.4.0;Data Source=L:\Gen3Client\Diagnostics\If97VersionExp.mdb&quot;
+        ///      providerName=&quot;System.Data.OleDb&quot; /&gt;
+        ///    &lt;add name=&quot;IF97Tool.Properties.Settings.Gen3DataConnectionString&quot;
+        ///      connectionString=&quot;Provider=Microsoft.Jet.OLEDB.4.0;Data Source=L:\Gen3Client\ [rest of string was truncated]&quot;;.
+        /// </summary>
+        internal static string app_config {
+            get {
+                return ResourceManager.GetString("app_config", resourceCulture);
+            }
+        }
     }
 }
